@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import SignIn from "../components/SignIn";
-import SignUp from "../components/SignUp";
+import SignIn from "../components/SignIn.jsx";
+import SignUp from "../components/SignUp.jsx";
 import BackgroundWrapper from "../components/BackgroundWrapper";
 
 const Authentication = () => {
