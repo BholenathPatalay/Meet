@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
-import SignIn from "../components/SignIn";
+import SignIn from "../components/signIn";
 import SignUp from "../components/signUp";
 import BackgroundWrapper from "../components/BackgroundWrapper";
 
 const Authentication = () => {
   const [searchParams] = useSearchParams();
   const mode = searchParams.get("mode");
-
 
   const [isSignIn, setIsSignIn] = useState(true);
 
