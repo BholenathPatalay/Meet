@@ -4,13 +4,11 @@ import {
   User,
   Mail,
   Lock,
-  Eye,
-  EyeOff,
   CheckCircle,
   UserPlus,
   ArrowLeft,
 } from "lucide-react";
-import OutlinedInput from "../components/OutlinedInput";
+import OutlinedInput from "./OutlinedInput";
 import { useAuthStore } from "../store/useAuthStore";
 
 const SignUp = () => {

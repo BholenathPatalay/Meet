@@ -2,11 +2,11 @@ import React, { useRef, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Video } from "lucide-react";
 import { useAuthStore } from "../store/useAuthStore";
-import ProfileModal from "./profileModal"; // adjust the import path as needed
+import ProfileModal from "./ProfileModal";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false); // modal state
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
   const dropdownRef = useRef(null);
   const { user, logout } = useAuthStore();
 
@@ -31,7 +31,7 @@ const Navbar = () => {
 
   const openProfileModal = () => {
     setIsProfileModalOpen(true);
-    setIsDropdownOpen(false); // close dropdown when opening modal
+    setIsDropdownOpen(false);
   };
 
   const closeProfileModal = () => {

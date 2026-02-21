@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail, Lock, Eye, EyeOff, LogIn, ArrowLeft } from "lucide-react";
-import OutlinedInput from "../components/OutlinedInput";
+import OutlinedInput from "./OutlinedInput";
 import { useAuthStore } from "../store/useAuthStore";
 
 const SignIn = () => {
