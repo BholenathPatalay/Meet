@@ -468,7 +468,7 @@ export default function VideoMeetComponent() {
                     autoPlay
                     muted
                     playsInline
-                    className="w-full h-full object-cover rounded-xl bg-black aspect-video"
+                    className="w-full h-full object-cover rounded-xl bg-black aspect-video scale-x-[-1]"
                   />
                   <div className="absolute bottom-2 left-2 bg-black/50 text-white px-2 py-1 rounded text-xs">
                     {username} (you)
@@ -490,7 +490,7 @@ export default function VideoMeetComponent() {
                       }}
                       autoPlay
                       playsInline
-                      className="w-full h-full object-cover rounded-xl bg-black aspect-video"
+                      className="w-full h-full object-cover rounded-xl bg-black aspect-video scale-x-[-1]"
                     />
                     <div className="absolute bottom-2 left-2 bg-black/50 text-white px-2 py-1 rounded text-xs transition">
                       {remoteNames[remote.socketId] || "Participant"}
