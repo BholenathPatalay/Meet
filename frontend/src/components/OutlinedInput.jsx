@@ -22,7 +22,7 @@ const OutlinedInput = ({
       <span
         className={`
           absolute -top-2.5 left-9 px-1 text-xs font-medium
-          transition-all duration-500 ease-in  bg-transparent
+          transition-all duration-200 ease-in  bg-transparent
           ${showLabel ? "opacity-100 scale-100" : "opacity-0 scale-95"}
           ${focused ? "text-blue-400" : "text-gray-400"}
         `}
