@@ -584,69 +584,87 @@ export default function VideoMeetComponent() {
           </div>
 
           {/* Chat */}
-          <AnimatePresence>
-            {showChat && (
-              <motion.div
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{ type: "tween", duration: 0.3 }}
-                className="w-60 sm:w-80 bg-black/90 backdrop-blur-md border-l border-white/20 flex flex-col z-40"
-              >
-                <div className="p-3 border-b border-white/20 flex justify-between items-center">
-                  <h3 className="text-white font-semibold text-sm sm:text-base">
-                    Chat
-                  </h3>
-                  <button
-                    onClick={toggleChat}
-                    className="text-white/60 hover:text-white text-lg"
-                  >
-                    <X size={25} />
-                  </button>
-                </div>
-                <div className="flex-1 overflow-y-auto p-3 space-y-2">
-                  {messages.map((msg, i) => (
-                    <div
-                      key={i}
-                      className={`p-2 rounded text-sm ${
-                        msg.sender === username
-                          ? "bg-blue-600/30 ml-auto"
-                          : "bg-white/10"
-                      } max-w-[85%] wrap-break-word`}
-                    >
-                      <p className="text-xs text-white/60 mb-0.5">
-                        {msg.sender === username ? "You" : msg.sender}
-                      </p>
-                      <p className="text-white">{msg.text}</p>
-                    </div>
-                  ))}
-                  {messages.length === 0 && (
-                    <p className="text-white/40 text-center text-sm">
-                      No messages yet
-                    </p>
-                  )}
-                </div>
-                <div className="p-3 border-t border-white/20">
-                  <div className="flex gap-2">
-                    <input
-                      type="text"
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      onKeyPress={(e) => e.key === "Enter" && sendMessage()}
-                      placeholder="Type a message..."
-                      className="flex-1 bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white text-sm placeholder-white/40 focus:outline-none focus:border-blue-500"
-                    />
-                    <button
-                      onClick={sendMessage}
-                      className="bg-blue-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-700 transition"
-                    >
-                      Send
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+<AnimatePresence>
+  {showChat && (
+    <motion.div
+      initial={{ x: "100%" }}
+      animate={{ x: 0 }}
+      exit={{ x: "100%" }}
+      transition={{ type: "tween", duration: 0.3 }}
+      className="
+        fixed sm:relative
+        top-0 right-0
+        w-full sm:w-80
+        h-[100dvh] sm:h-full
+        bg-black/95 sm:bg-black/90
+        backdrop-blur-md
+        border-l border-white/20
+        flex flex-col
+        z-50 sm:z-40
+      "
+    >
+      {/* Header */}
+      <div className="p-4 border-b border-white/20 flex justify-between items-center">
+        <h3 className="text-white font-semibold text-base">
+          Chat
+        </h3>
+        <button
+          onClick={toggleChat}
+          className="text-white/60 hover:text-white"
+        >
+          <X size={24} />
+        </button>
+      </div>
+
+      {/* Messages */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-2">
+        {messages.map((msg, i) => (
+          <div
+            key={i}
+            className={`p-2 rounded text-sm ${
+              msg.sender === username
+                ? "bg-blue-600/30 ml-auto"
+                : "bg-white/10"
+            } max-w-[85%] break-words`}
+          >
+            <p className="text-xs text-white/60 mb-0.5">
+              {msg.sender === username ? "You" : msg.sender}
+            </p>
+            <p className="text-white">{msg.text}</p>
+          </div>
+        ))}
+
+        {messages.length === 0 && (
+          <p className="text-white/40 text-center text-sm">
+            No messages yet
+          </p>
+        )}
+      </div>
+
+      {/* Input Section */}
+      <div className="p-4 border-t border-white/20">
+        <div className="flex items-center gap-2">
+          <input
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+            placeholder="Type a message..."
+            className="flex-1 min-w-0 px-4 py-2 rounded-lg bg-white/10 text-white outline-none"
+          />
+
+          <button
+            onClick={sendMessage}
+            className="shrink-0 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white"
+          >
+            Send
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+          
+          
         </div>
       )}
     </div>
